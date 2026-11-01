@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>☁️ Cloud To-Do List</h1>
+    <p>Plan your day, track your progress, and get things done.</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Messages (success / error) -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Statistics -->
+    <section class="stats">
+      <div class="stat-card total">
+        <span class="stat-icon">📋</span>
+        <div><h3>Total Tasks</h3><p id="totalCount">0</p></div>
+      </div>
+      <div class="stat-card done">
+        <span class="stat-icon">✅</span>
+        <div><h3>Completed</h3><p id="completedCount">0</p></div>
+      </div>
+      <div class="stat-card pending">
+        <span class="stat-icon">⏳</span>
+        <div><h3>Pending</h3><p id="pendingCount">0</p></div>
+      </div>
+    </section>
+
+    <!-- Add / Edit Task Form -->
+    <section class="card">
+      <h2 id="formTitle">➕ Add New Task</h2>
+      <form id="taskForm">
+        <div class="form-group">
+          <label for="title">Task Title</label>
+          <input type="text" id="title" maxlength="100" placeholder="What do you need to do?" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Task Description</label>
+          <textarea id="description" rows="3" placeholder="Add some details (optional)"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="date" id="dueDate">
+          </div>
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="High">🔴 High</option>
+              <option value="Medium" selected>🟡 Medium</option>
+              <option value="Low">🟢 Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" id="submitBtn" class="btn btn-primary">➕ Add Task</button>
+          <button type="button" id="cancelBtn" class="btn btn-secondary hidden">✖ Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="toolbar">
+      <input type="text" id="searchInput" class="search" placeholder="🔍 Search tasks...">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+    </section>
+
+    <!-- Task List -->
+    <section id="taskList" class="task-list"></section>
+
+  </main>
+
+  <footer class="footer">Cloud To-Do List • Built with HTML, CSS &amp; JavaScript</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
